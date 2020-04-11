@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.minimap.enabled": false,
+		"editor.formatOnSave": true,
+		"files.insertFinalNewline": true,
+		"typescript.preferences.importModuleSpecifier": "relative",
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"editor.foldingStrategy": "indentation"
+	}
+}

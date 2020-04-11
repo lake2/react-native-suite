@@ -1,0 +1,66 @@
+{
+    "name": "react-native-suite",
+    "version": "0.0.1",
+    "scripts": {
+        "android": "react-native run-android",
+        "ios": "react-native run-ios",
+        "start": "react-native start",
+        "test": "jest",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+        "pub": "npm publish --registry http://registry.npmjs.org"
+    },
+    "files": [
+        "dist/**/*"
+    ],
+    "author": "lake2",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lake2/react-native-suite/issues"
+    },
+    "homepage": "https://github.com/lake2/react-native-suite#readme",
+    "dependencies": {
+        "@react-native-community/masked-view": "^0.1.8",
+        "@react-navigation/native": "^5.1.5",
+        "@react-navigation/stack": "^5.2.10",
+        "@types/lodash.throttle": "^4.1.6",
+        "lodash.throttle": "^4.1.1",
+        "react": "16.11.0",
+        "react-native": "0.62.2",
+        "react-native-gesture-handler": "^1.6.1",
+        "react-native-reanimated": "^1.8.0",
+        "react-native-safe-area-context": "^0.7.3",
+        "react-native-screens": "^2.4.0",
+        "react-native-status-bar-height": "^2.5.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.2",
+        "@babel/runtime": "^7.6.2",
+        "@react-native-community/eslint-config": "^1.0.0",
+        "@types/jest": "^24.0.24",
+        "@types/react-native": "^0.62.0",
+        "@types/react-test-renderer": "16.9.2",
+        "@typescript-eslint/eslint-plugin": "^2.27.0",
+        "@typescript-eslint/parser": "^2.27.0",
+        "babel-jest": "^24.9.0",
+        "eslint": "^6.5.1",
+        "grunt": "^1.1.0",
+        "grunt-contrib-clean": "^2.0.0",
+        "grunt-ts": "^6.0.0-beta.22",
+        "jest": "^24.9.0",
+        "metro-react-native-babel-preset": "^0.58.0",
+        "prettier": "^2.0.4",
+        "react-test-renderer": "16.11.0",
+        "typescript": "^3.8.3"
+    },
+    "jest": {
+        "preset": "react-native",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
+    }
+}
