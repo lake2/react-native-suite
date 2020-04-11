@@ -20,8 +20,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Android Build
-      uses: vgaidarji/android-github-actions-build@v1.0.1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
