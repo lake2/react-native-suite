@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.suite"
+        applicationId "cn.lake2.suite"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,4 +1,4 @@
-package com.suite;
+package cn.lake2.suite;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "suite";
+    return "RNSuite";
   }
 }
