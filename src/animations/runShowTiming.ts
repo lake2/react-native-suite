@@ -30,7 +30,7 @@ export function runShowTiming(timingConfig: RunShowTimingConfig) {
     };
 
     const config = {
-        duration: 300,
+        duration: 200,
         toValue: new Value(0),
         easing: Easing.inOut(Easing.ease),
     };
