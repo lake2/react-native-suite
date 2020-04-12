@@ -26,5 +26,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run release
+    - run: curl -F 'file=@./android/app/build/outputs/apk/release/app-release.apk ' -F '_api_key=d0efe045589c26e0d00ba708b6d38978' https://www.pgyer.com/apiv2/app/upload
       env:
         CI: true
