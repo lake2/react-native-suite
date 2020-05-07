@@ -3,7 +3,7 @@ import Animated, { Easing } from "react-native-reanimated";
 const { cond, debug } = Animated;
 
 export const logConfig = {
-    show: true,
+    show: __DEV__ && true,
     filter: undefined as ((text: string) => boolean) | undefined
 }
 
@@ -20,4 +20,5 @@ export function log(message: string, value: Animated.Node<any>): Animated.Node<a
 }
 
 
-logConfig.filter = (text) => text.startsWith("OverlayAnimation")
+// logConfig.filter = (text) => text.startsWith("Overlay")
+logConfig.filter = (text) => true

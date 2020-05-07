@@ -13,7 +13,7 @@ const App = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator headerMode="none">
-                {/* <Stack.Screen name={Screen.Home} component={Home} options={options} /> */}
+                <Stack.Screen name={Screen.Home} component={Home} options={options} />
                 <Stack.Screen name={Screen.DialogTest} component={DialogTest} options={options} />
             </Stack.Navigator>
         </NavigationContainer>

@@ -1,26 +1,22 @@
 import Animated, { Easing } from "react-native-reanimated";
 
-const { cond, block, set, Value, clockRunning, timing, stopClock, Clock, startClock, not, eq, and } = Animated;
+const { cond, block, set, Value, clockRunning, timing, stopClock, Clock, startClock, not, eq, and, call } = Animated;
 
 import { log } from "./log";
 
 export interface RunShowTimingConfig {
-    show: Animated.Value<number>,
-    zIndexConfig: [number, number],
     name?: string,
+    setVisiable: (value: any) => any
 }
 
 export interface ShowTiming {
+    show: Animated.Value<number>;
     opacity: Animated.Node<number>;
-    zIndex: Animated.Node<number>;
 }
 
-export function runShowTiming(timingConfig: RunShowTimingConfig): ShowTiming;
-
-export function runShowTiming(timingConfig: RunShowTimingConfig) {
-    const showTiming = {} as ShowTiming;
-    const { show, zIndexConfig } = timingConfig;
-    const name = timingConfig.name ?? "runShowTiming";
+export function runShowTiming(timingConfig: RunShowTimingConfig): ShowTiming {
+    const showTiming = { show: new Value(0) } as ShowTiming;
+    const name = timingConfig.name ?? "runShowTiming2";
 
     const state = {
         finished: new Value(0),
@@ -37,14 +33,12 @@ export function runShowTiming(timingConfig: RunShowTimingConfig) {
 
     const clock = new Clock();
     const opacity = new Value(0);
-    const zIndex = new Value(zIndexConfig[0]);
 
     showTiming.opacity = block([
-        log(`${name} : --------------------`, clockRunning(clock)),
-        log(`${name} : start clockRunning`, clockRunning(clock)),
-        log(`${name} : start show`, show),
+        log(`${name} : --------------------clockRunning:`, clockRunning(clock)),
+        log(`${name} : start show`, showTiming.show),
         cond(
-            show,
+            showTiming.show,
             [
                 cond(
                     and(not(clockRunning(clock)), not(eq(opacity, 1))),
@@ -54,8 +48,8 @@ export function runShowTiming(timingConfig: RunShowTimingConfig) {
                         set(state.position, opacity),
                         set(state.frameTime, 0),
                         set(config.toValue, 1),
-                        set(zIndex, zIndexConfig[1]),
                         startClock(clock),
+                        cond(eq(opacity, 0), call([], () => timingConfig.setVisiable(true))),
                         log(`${name} : show startClock`, clockRunning(clock)),
                     ]
                 ),
@@ -91,22 +85,16 @@ export function runShowTiming(timingConfig: RunShowTimingConfig) {
                 cond(
                     state.finished,
                     [
-                        set(zIndex, zIndexConfig[0]),
                         stopClock(clock),
+                        cond(eq(opacity, 0), call([], () => timingConfig.setVisiable(false))),
                         log(`${name} : hide stopClock`, clockRunning(clock)),
                     ]
                 ),
             ]
         ),
         log(`${name} : end opacity`, opacity),
-        log(`${name} : end zIndex`, zIndex),
         log(`${name} : end clockRunning`, clockRunning(clock)),
         opacity,
-    ]);
-
-    showTiming.zIndex = block([
-        showTiming.opacity,
-        zIndex,
     ]);
 
     return showTiming;

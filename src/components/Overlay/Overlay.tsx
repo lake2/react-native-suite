@@ -1,27 +1,27 @@
 import * as React from "react";
-import { StyleSheet } from 'react-native';
 import Animated from "react-native-reanimated";
+import { StyleSheet, ViewStyle } from 'react-native';
 
-import { OverlayAnimation } from './OverlayAnimation';
+import { runShowTiming } from "../../animations";
 
 interface OverlayProps {
     show: boolean,
-    zIndex?: [number, number]
-    backgroundColor?: string,
+    style?: Animated.AnimateStyle<ViewStyle>
 }
 
-export const Overlay: React.FunctionComponent<OverlayProps> = React.memo(function Overlay(props) {
-    const backgroundColor = props.backgroundColor ?? "rgba(0, 0, 0, 0.7)";
-    const zIndex = props.zIndex ?? [-1, 1];
-    const animation = React.useRef(new OverlayAnimation(zIndex));
+export const Overlay: React.FC<OverlayProps> = React.memo(function Overlay(props) {
+    const backgroundColor = props.style?.backgroundColor ?? "rgba(0, 0, 0, 0.7)";
+    const [visiable, setVisiable] = React.useState(false);
+    const animation = React.useMemo(() => runShowTiming({ name: "Overlay", setVisiable }), []);
 
-    Animated.useCode(() => props.show ? Animated.set(animation.current.show, 1) : Animated.set(animation.current.show, 0), [props.show]);
+    Animated.useCode(() => props.show ? Animated.set(animation.show, 1) : Animated.set(animation.show, 0), [props.show]);
 
     return (
-        <Animated.View style={[style.contsiner, { backgroundColor, opacity: animation.current.opacity, zIndex: animation.current.zIndex }]} />
+        <Animated.View style={[props.style, style.container, { backgroundColor, opacity: animation.opacity }, !visiable && style.hide]} />
     );
 });
 
 const style = StyleSheet.create({
-    contsiner: { position: "absolute", top: 0, left: 0, bottom: 0, right: 0, flex: 1 }
+    container: { position: "absolute", top: 0, left: 0, bottom: 0, right: 0, flex: 1 },
+    hide: { display: "none", zIndex: -99 }
 })
