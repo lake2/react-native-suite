@@ -8,13 +8,13 @@
 
 [使用示例](src/screens/Home/Home.tsx)
 
-![Overlay 效果图i](https://user-images.githubusercontent.com/6293752/86525389-24920d00-beb9-11ea-8b3d-91e38cda8f06.gif)
+![Overlay 效果图i](https://user-images.githubusercontent.com/6293752/86525677-edbdf600-bebc-11ea-818e-e14f8586abdb.gif)
 
 ### Dialog
 
 [使用示例](src/screens/Dialog/DialogTest.tsx)
 
-![Dialog 效果图i](https://user-images.githubusercontent.com/6293752/86525542-fd3c3f80-beba-11ea-9916-b9fdb42e5443.gif)
+![Dialog 效果图i](https://user-images.githubusercontent.com/6293752/86525658-a2a3e300-bebc-11ea-9630-db9ed7a71cc2.gif)
 
 ### SlideUpDialog
 
