@@ -3,7 +3,7 @@ import Animated, { Easing } from "react-native-reanimated";
 const { cond, debug } = Animated;
 
 export const logConfig = {
-    show: __DEV__ && true,
+    show: __DEV__ && false,
     filter: undefined as ((text: string) => boolean) | undefined
 }
 
