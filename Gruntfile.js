@@ -21,7 +21,9 @@ module.exports = function (grunt) {
                     rootDir: "./src/",
                     strict: true,
                     baseUrl: "./src",
-                    skipLibCheck: true
+                    skipLibCheck: true,
+                    moduleResolution: "node",
+                    allowSyntheticDefaultImports: true
                 }
             }
         },
