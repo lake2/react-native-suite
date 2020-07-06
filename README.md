@@ -2,7 +2,7 @@
 
 # react-native-suite [![github ci](https://github.com/lake2/react-native-suite/workflows/Build%20android%20CI/badge.svg)](https://github.com/lake2/react-native-suite/actions)
 
-> 基于react-native的一些基础UI组件。
+> 基于react-native的一些基础UI组件。凡涉及到动画的部分全部使用[react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)编写的，比普通动画有更高的性能，更流畅的体验
 
 ### Overlay
 
